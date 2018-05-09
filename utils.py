@@ -58,7 +58,7 @@ def create_encoder(input_dims, base_filters=64, layers=4, latent=512):
         encoder.add(BatchNormalization(axis=3))
         encoder.add(Activation(K.relu))
     encoder.add(Reshape([w*h*c]))
-    encoder.add(Dense(latent*2))
+    encoder.add(Dense(latent*2)) # z_mean , z_log_var
     return encoder
 
 def create_decoder(output_dims, base_filters=64, layers=4, latent=512):
